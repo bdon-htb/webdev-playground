@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo|Satisfy&display=swap');
+/* font-family: 'Satisfy', cursive;
+font-family: 'Heebo', sans-serif;*/
+
+/* Declaring global CSS variables */
+:root {
+  --default-dark: #1d1d1d;
+  --default-white: #FAFAFA;
+  --default-bg-color: #212121;
+  --default-highlight-color: #E1F5FE;
+  --page-heading-glow-color: #1976D2;
+  --link-active-color: #81D4FA;
+  --transparent-color: rgba(0,0,0,0);
+  --default-border-radius: 8px;
+}
+
+/* Semantic elements and their children */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--default-highlight-color);
+    background-color: var(--default-bg-color);
+    font-family: 'Heebo', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
+  background-color: inherit;
+  border-bottom: 30px;
+  color: inherit;
+}
+
+header h1 {
+  font-family: 'Satisfy', cursive;
+  text-shadow: 2px 2px 8px var(--page-heading-glow-color);
+  cursor: pointer;
+}
+
+header li, a, button {
+  font-weight: 500;
+  font-size: 18px;
+  text-shadow: 2px 2px inherit;
+  color: inherit;
+}
+
+header .nav_links li a:hover {
+  color: var(--link-active-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: inherit;
+  color: inherit;
+  background-color: var(--default-dark);
+}
+
+footer {
+  background-color: inherit;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+}
+
+footer h1 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+/* Navigation classes */
+.nav_links {
+  list-style-type: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.nav_links a {
+  text-decoration: none;
+}
+
+/* Main classes */
+.frame_wrapper {
+  background-color: var(--transparent-color);
+  display: flex;
+  justify-content: center;
+}
+
+.picture_frame {
+  background-color: var(--default-highlight-color);
+  border-radius: var(--default-border-radius);
+  width: 25%;
+  margin: 10px 0px;
+  padding: 8px;
+}
+
+.profile_picture {
+  width: 100%;
+}
+
+.message_container {
+  background-color: var(--default-bg-color);
+  border-color: var(--default-highlight-color);
+  border-style: solid;
+  border-radius: var(--default-border-radius);
+  color: var(--default-white);
+  padding: 25px 50px;
+  margin: 10px;
+}
+
+.message_container h1, h2, h3, p {
+  background-color: inherit;
+  color: inherit;
+}
+
+.message_container h1 {
+  font-weight: 300;
+  font-size: 40px;
+}
+
+/* Misc. classes */
+.neon_accent {
+  background-color: var(--default-highlight-color);
+  height: 5px;
+}
+
+.social_media {
+  width: 40px;
+  margin: 5px;
+}
+
+#earth-wallpaper {
+  background-image: url('../images/nasa-wallpaper.jpg');
+}
