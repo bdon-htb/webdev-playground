@@ -1,0 +1,2 @@
+This is a basic javascript pong game that I developed using this tutorial -> https://www.udemy.com/course/code-your-first-game/
+Compared to the tutorial, this game is not fully complete. But I feel like I've learned enough to diverge onto my own project.

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>PONG</h1>
+    <canvas id="game-canvas" width="800" height="600"></canvas>
+</body>
+
+<script>
+  var canvas; // Handles dimension information.
+  var canvas_context; // Underlying graphics information.
+
+  var ball_x = 50;
+  var ball_y = 50;
+  var ball_base_speed = 10;
+  var ball_acceleration = 1;
+  var ball_speed_x = ball_base_speed;
+  var ball_speed_y = ball_base_speed;
+  const BALL_SIZE = 10;
+
+  var paddle1_y = 250;
+  var paddle2_y = 250
+  const PADDLE_HEIGHT = 100;
+  const PADDLE_WIDTH = 10;
+  const PADDLE_MARGIN = 40;
+
+  const ENEMY_SPEED = 10;
+
+  // Don't activate until after the entire page loaded.
+  window.onload = function() {
+    console.log("Hello World!");
+    canvas = document.getElementById('game-canvas');
+    canvas_context = canvas.getContext('2d');
+
+    var FPS = 30;
+    setInterval(callBoth, 1000/FPS);
+
+    canvas.addEventListener('mousemove',
+      function(evt) {
+        var mouse_pos = calculateMousePos(evt);
+        paddle1_y = mouse_pos.y - (PADDLE_HEIGHT / 2); // Centers paddle at middle of mouse.
+      });
+  }
+
+function accelerate(speed, acceleration) {
+  if (speed >= 0) {
+    speed += acceleration;
+  }
+  else {
+    speed -= acceleration;
+  }
+  return speed
+}
+
+function moveEnemy() {
+  var paddle2_y_center = paddle2_y + (PADDLE_HEIGHT / 2);
+  if (paddle2_y_center < ball_y) {
+    paddle2_y += ENEMY_SPEED;
+  } else {
+    paddle2_y -= ENEMY_SPEED;
+  }
+}
+function resetBall() {
+  if (ball_speed_x >= 0) {
+    ball_speed_x = -ball_base_speed;
+  } else {
+    ball_speed_x = ball_base_speed;
+  }
+
+  ball_x = canvas.width / 2;
+  ball_y = canvas.height / 2;
+}
+
+function calculateMousePos(evt) {
+  var rect = canvas.getBoundingClientRect();
+  var root = document.documentElement;
+  var mouse_x = evt.clientX - rect.left - root.scrollLeft;
+  var mouse_y = evt.clientY - rect.top - root.scrollTop;
+  return {
+    x: mouse_x,
+    y: mouse_y
+  };
+}
+
+function drawCircle(center_x, center_y, radius, draw_color) {
+  canvas_context.fillStyle = draw_color;
+  canvas_context.beginPath();
+  canvas_context.arc(center_x, center_y, radius, 0, Math.PI*2, true);
+  canvas_context.fill();
+
+}
+function drawRect(left_x, top_y, width, height, draw_color) {
+  canvas_context.fillStyle = draw_color;
+  canvas_context.fillRect(left_x, top_y, width, height);
+}
+
+function moveEverything() {
+  ball_x += ball_speed_x;
+  ball_y += ball_speed_y;
+
+  // if it hits a paddle.
+  if ( ball_y > paddle1_y && ball_y < paddle1_y + PADDLE_HEIGHT &&
+    ball_x <= PADDLE_WIDTH + PADDLE_MARGIN ||
+    ball_y > paddle2_y && ball_y < paddle2_y + PADDLE_HEIGHT &&
+    ball_x >= canvas.width - PADDLE_WIDTH - PADDLE_MARGIN) {
+    ball_speed_x = -ball_speed_x;
+    ball_speed_x = accelerate(ball_speed_x, ball_acceleration)
+  }
+
+  // If it hits horizontal boundaries.
+  if (ball_x >= canvas.width - BALL_SIZE || ball_x <= 0) {
+    resetBall()
+  }
+
+  // If it hits vertical boundaries.
+  if (ball_y >= canvas.height - BALL_SIZE || ball_y <= 0) {
+    ball_speed_y = -ball_speed_y
+  }
+
+  moveEnemy()
+}
+
+function drawEverything() {
+  // Order of drawing rects affects overlap.
+  drawRect(0, 0, canvas.width, canvas.height, 'black'); // Background
+
+  // Enemy and player paddles.
+  // I included a 1 pixel margin to make it look nicer against a white
+  // background web page.
+  drawRect(0 + PADDLE_MARGIN, paddle1_y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white'); // Paddle
+  drawRect(canvas.width - PADDLE_WIDTH - PADDLE_MARGIN, paddle2_y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white'); // Enemy paddle
+
+  // drawRect(ball_x, canvas.height/2, BALL_SIZE, BALL_SIZE, 'white'); // Old Ball
+  drawCircle(ball_x, ball_y, BALL_SIZE, 'white')
+}
+
+function callBoth() {
+  moveEverything();
+  drawEverything();
+}
+
+</script>
+
+</html>
