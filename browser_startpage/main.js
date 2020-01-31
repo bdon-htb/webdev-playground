@@ -76,9 +76,8 @@ function getMonthWord() {
 
 function getDayOfTheWeek() {
   // Convert numeric day of the week to English equivalent.
-  daysOfWeek = ['Monday', 'Tuesday', 'Wednesday',
-  'Thursday', 'Friday', 'Saturday',
-  'Sunday']
+  daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+  'Thursday', 'Friday', 'Saturday']
   date = new Date()
   return daysOfWeek[date.getDay()]
 }
@@ -94,6 +93,9 @@ function getDate() {
 
 function updateClock() {
   document.getElementById('clock').innerHTML = `<h2>${getTime()}</h2>`;
+}
+
+function getQuote() {
 }
 
 function main() {
