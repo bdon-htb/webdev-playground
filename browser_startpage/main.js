@@ -1,4 +1,8 @@
-USER = 'Brandon'
+USER = 'Brandon';
+
+function updateClock() {
+  document.getElementById('clock').innerHTML = `<h2>${getTime()}</h2>`;
+}
 
 function getTimeOfDay() {
   let timeOfDay = ['morning', 'afternoon', 'evening', 'night'];
@@ -61,7 +65,7 @@ function getTime() {
 
   minutes = padNum(minutes);
   seconds = padNum(seconds);
-  return `${hours}:${minutes}:${seconds} ${period}`
+  return `${hours}:${minutes}:${seconds} ${period}`;
 }
 
 function getMonthWord() {
@@ -69,40 +73,33 @@ function getMonthWord() {
   months = ['January', 'February', 'March',
     'April', 'May', 'June',
     'July', 'August', 'September',
-    'October', 'November', 'December']
-  date = new Date()
-  return months[date.getMonth()]
+    'October', 'November', 'December'];
+  date = new Date();
+  return months[date.getMonth()];
 }
 
 function getDayOfTheWeek() {
   // Convert numeric day of the week to English equivalent.
   daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
-  'Thursday', 'Friday', 'Saturday']
-  date = new Date()
-  return daysOfWeek[date.getDay()]
+  'Thursday', 'Friday', 'Saturday'];
+  date = new Date();
+  return daysOfWeek[date.getDay()];
 }
 
 function getDate() {
-  date = new Date()
-  year = date.getFullYear()
-  month = getMonthWord()
-  dayOfWeek = getDayOfTheWeek()
-  dayOfMonth = date.getDate()
-  return `${dayOfWeek} ${dayOfMonth}, ${month} ${year}`
-}
-
-function updateClock() {
-  document.getElementById('clock').innerHTML = `<h2>${getTime()}</h2>`;
-}
-
-function getQuote() {
+  date = new Date();
+  year = date.getFullYear();
+  month = getMonthWord();
+  dayOfWeek = getDayOfTheWeek();
+  dayOfMonth = date.getDate();
+  return `${dayOfWeek} ${dayOfMonth}, ${month} ${year}`;
 }
 
 function main() {
   document.getElementById('greeting').innerHTML = `<h1>${generateGreeting(USER)}</h1>`;
   document.getElementById('date').innerHTML = `<h3>${getDate()}</h3>`;
-  updateClock()
+  updateClock();
   setInterval(updateClock, 1000);
 }
 
-main()
+main();
