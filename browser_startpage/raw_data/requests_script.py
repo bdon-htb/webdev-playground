@@ -3,8 +3,6 @@ import requests
 
 # This is the script used to collect all the quotes for my project.
 # They all orginate from goodreads.com as seen in the url string.
-# After thorough testing I've noticed that some of the quotes come out strange.
-# It is currently unknown if the parsing error is within the javascript or python. 
 
 FILENAME = 'inspirational_quotes.csv'
 url = f'https://www.goodreads.com/quotes/tag/inspirational'
@@ -28,6 +26,7 @@ for i in range(1,101):
                 string = f'{quote}, {author}\n'
                 try: # Skip writing unrecognized characters.
                     file.write(string)
+                    # print(string)
                 except:
                     pass
 

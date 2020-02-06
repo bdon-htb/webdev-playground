@@ -1515,10 +1515,11 @@ function generateRandomInt(min, max) {
 }
 
 function getQuote(data) {
-  // Some quotes come out wonky. Unsure if it's the javascript or python. Oh well.
   var allRows = data.split('\n');
   const index = generateRandomInt(0, allRows.length);
-  var quote = allRows[index].split(',');
+  // TODO: Make extracting messages and authors more elaborate.
+  // There are plenty of exceptions that will produce odd strings.
+  var quote = allRows[index].split(', ');
   var message = quote[0];
   var author = quote[1];
   var string = message + '―' + author;

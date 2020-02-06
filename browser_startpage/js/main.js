@@ -34,11 +34,13 @@ function getHours12() {
   let hours = date.getHours();
   let period;
 
-  if (hours > 12) {
-    hours = hours - 12
-    period = 'PM'
+  if (hours >= 12) {
+    if (hours > 12) {
+        hours = hours - 12;
+    }
+    period = 'PM';
   } else {
-    period = 'AM'
+    period = 'AM';
   }
   return [hours, period]
 }
