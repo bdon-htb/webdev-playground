@@ -1305,7 +1305,6 @@ var csv_file = (`“Be yourself; everyone else is already taken.”, Oscar Wilde
 “The future doesn't belong to the light-hearted. It belongs to the brave.”, Ronald Regan
 “When you have a great and difficult task, something perhaps almost impossible, if you only work a little at a time, every day a little, suddenly the work will finish itself.”, Isak Dinesen
 “God, send me anywhere, only go with me. Lay any burden on me, only sustain me. And sever any tie in my heart except the tie that binds my heart to Yours.”, David Livingstone
-“Total paranoia is just total awareness.”, Charles Manson
 “Be yourself. Don't worry about what other people are thinking of you, because they're probably feeling the same kind of scared, horrible feelings that everyone does.”, Phil Lester
 “Sometimes you just have to jump out the window and grow wings on the way down.”, Ray Bradbury
 “Rules for happiness: something to do, someone to love, something to hope for.”, Immanuel Kant
