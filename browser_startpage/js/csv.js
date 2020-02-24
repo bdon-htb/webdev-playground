@@ -1516,11 +1516,8 @@ function generateRandomInt(min, max) {
 function getQuote(data) {
   var allRows = data.split('\n');
   const index = generateRandomInt(0, allRows.length);
-  // TODO: Make extracting messages and authors more elaborate.
-  // There are plenty of exceptions that will produce odd strings.
   var quote = allRows[index];
   var separation = quote.lastIndexOf(', ') + 1;
-  var quote;
   var message = quote.slice(0,separation - 1);
   var author = quote.slice(separation, (quote.length));
   var quote = message + '―' + author;
