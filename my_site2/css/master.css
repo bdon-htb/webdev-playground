@@ -1,11 +1,29 @@
+/* Declaring global CSS variables */
+/*
+:root {
+  --default-dark: #1d1d1d;
+  --default-white: #FAFAFA;
+  --default-bg-color: #212121;
+  --default-highlight-color: #E1F5FE;
+  --page-heading-glow-color: #1976D2;
+  --link-active-color: #81D4FA;
+  --transparent-color: rgba(0,0,0,0);
+  --default-border-radius: 8px;
+} */
+
+/* Pallete https://www.color-hex.com/color-palette/88427 */
+/* Semantic elements and their childrne */
 body {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, 20%);
+  background-color: #3e5ac8;
+  color: #cedfef;
 }
 
 header {
   grid-column: 1;
   grid-row: span 2;
+  background-color: #192346;
 }
 
 main {
@@ -17,4 +35,9 @@ footer {
   grid-column: 2 / 2;
   grid-row: 2;
   margin-left: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
