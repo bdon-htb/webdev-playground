@@ -31,6 +31,11 @@ header {
   align-items: center;
 }
 
+nav {
+  width: 75em;
+  max-width: 100%;
+}
+
 main {
   grid-column: 2 / 2;
   margin-left: 0px;

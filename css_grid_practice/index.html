@@ -1,0 +1,56 @@
+<!-- Based off the video here:  https://www.youtube.com/watch?v=jV8B24rSN5o -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Grid</title>
+    <!-- > is the child combinator. Only selects elements directly inside the div
+         and not any further nested within. -->
+    <style>
+      .wrapper{
+        display:grid;
+        grid-template-columns: 70% 30%;
+        /*
+        grid-column-gap:1em;
+        grid-row-gap:1em;
+       */
+       grid-gap:1em;
+      }
+
+      .wrapper > div{
+        background:#eee;
+        padding:1em;
+      }
+      .wrapper > div:nth-child(odd){
+        background:#ddd;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="wrapper">
+        <div>
+          quis sint quis tempor elit quae illum tamen quem sint minim magna minim aute
+          aute noster quorum cillum fore dolor minim fugiat labore multos aliqua sunt esse
+          enim ipsum quae nisi ipsum dolor eram aliqua veniam sint elit quis legam aliqua
+          quid noster aliqua minim noster ipsum summis noster veniam anim aute nisi duis
+          velit illum aute sunt labore irure fugiat anim malis nisi quorum nulla quis
+          legam dolor quem dolor tamen culpa eram quem quid irure velit multos labore
+        </div>
+        <div>
+          malis export enim illum tempor aute irure aute amet quis duis irure export duis
+          cillum culpa eram velit quid quorum quem anim multos anim quae dolor sint aliqua
+          enim sint
+        </div>
+        <div>
+          malis export enim illum tempor aute irure aute amet quis duis irure export duis
+          cillum culpa eram velit quid quorum quem anim multos anim quae dolor sint aliqua
+          enim sint
+        </div>
+        <div>
+          malis export enim illum tempor aute irure aute amet quis duis irure export duis
+          cillum culpa eram velit quid quorum quem anim multos anim quae dolor sint aliqua
+          enim sint
+        </div>
+      </div>
+  </body>
+</html>
