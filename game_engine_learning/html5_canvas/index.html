@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Game Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <!-- Text inside the element will be displayed if the hmtl5 canvas is not supported -->
+    <canvas id="GLCanvas" width="640" height="480">
+      Your browser does not support the HTML5 canvas.
+    </canvas>
+
+    <script type="text/javascript">
+      // JavaScript code goes here.
+      // Store a reference to the GLCanvas drawing area.
+      var canvas = document.getElementById("GLCanvas")
+      // Gives access to all WebGL functionality.
+      var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
+      // Clear canvas.
+      if (gl != null) {
+        gl.clearColor(0.0, 0.8, 0.0, 1.0); // set the color to be cleared.
+        gl.clear(gl.COLOR_BUFFER_BIT);
+      }
+    </script>
+  </body>
+</html>
