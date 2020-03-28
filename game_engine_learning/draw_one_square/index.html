@@ -7,5 +7,29 @@
   <body onload="doGLDraw();">
     <canvas id="GLCanvas" width="640" height="480"></canvas>
     <script type="text/javascript" src="src/WebGL.js"></script>
+    <script type="text/javascript" src="src/VertexBuffer.js" charset="utf-8"></script>
+    <script type="x-shader/x-vertex" id="VertexShader">
+    // x-shader/x-vertex is a common convention for shaders.
+    // the id field allows me to identify and load the particular vertex shader
+    // into memory.
+    // the GLSL attribute identifies per-vertex data that will be passed
+    // to the vertex shader in the GPU.
+    // aSquareVertexPosition is of data type vec3 (an array of three
+    // floating-point numbers)
+    // The gl_Position is a GLSL built-in variable, specifically an array of
+    // four floating-point numbers.
+      attribute vec3 aSquareVertexPosition;
+      void main() {
+        gl_Posiition = vec4(aSquareVertexPosition, 1.0);
+      }
+    </script>
+    <script type="x-shader/x-fragmnet" id="FragmentShader">
+    // The fragment shader is invoked once per pixel.
+    // The variable gl_FragColor is a built-in that determines the color of the pixel.
+    // (In this case, white)
+      void main(void) {
+        gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+      }
+    </script>
   </body>
 </html>
