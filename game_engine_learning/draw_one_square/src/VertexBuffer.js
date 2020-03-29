@@ -23,6 +23,5 @@ function initSquareBuffer() {
   // Step C: Loads verticesOfSquare into the vertexBuffer
   // A Float32Array represents an array of 32-bit floating point numbers.
   // STATIC_DRAW informs the drawing hardware that this buffer will not be changed.
-  gGL.bufferData(gGL.ARRAY_BUFFER, new Float32Array(verticesOfSquare),
-  gGL.STATIC_DRAW);
+  gGL.bufferData(gGL.ARRAY_BUFFER, new Float32Array(verticesOfSquare), gGL.STATIC_DRAW);
 }
