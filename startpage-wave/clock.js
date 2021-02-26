@@ -1,5 +1,5 @@
 function getHours12(date) {
-  return date.getHours() % 12;
+  return 12 - ((-date.getHours()) % 12);
 }
 
 function getPeriod(date){
